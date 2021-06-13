@@ -1,1 +1,9 @@
-arquivos
+# diretórios
+arquivos/ 
+.vscode/
+.settings/
+target/
+
+# arquivos
+*.classpath
+*.project
