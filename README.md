@@ -13,7 +13,7 @@ O SGBD utilizado é o MySQL 5.7 e o banco de dados terá as seguintes tabelas:
 
 Diagrama de Entidade Relacionamento:
 
-![Diagrama ER](banco-de-dados\diagrama-er.png)
+![Diagrama ER](https://github.com/Leandro616/agenda-web/blob/main/banco-de-dados/diagrama-er.png)
 
 
 
