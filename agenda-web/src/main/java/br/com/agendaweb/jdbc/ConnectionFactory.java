@@ -13,8 +13,9 @@ public class ConnectionFactory {
       String password = "1234";
 
       try {
+         Class.forName("com.mysql.jdbc.Driver");
          connection = DriverManager.getConnection(url, user, password);
-      } catch (SQLException e) {
+      } catch (Exception e) {
          e.printStackTrace();
       }
 

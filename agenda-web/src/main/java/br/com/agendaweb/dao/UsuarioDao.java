@@ -20,11 +20,9 @@ public class UsuarioDao {
 
       try (PreparedStatement ps = connection.prepareStatement(sql)) {
 
-         String senha = new ValidadorArgon2().criarHash(usuario.getSenha());
-
          ps.setString(1, usuario.getNome());
          ps.setString(2, usuario.getEmail());
-         ps.setString(3, senha);
+         ps.setString(3, usuario.getSenha());
 
          ps.execute();
 
