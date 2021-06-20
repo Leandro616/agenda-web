@@ -27,6 +27,10 @@ O usuário poderá armazenar vários contatos e cada contato poderá ter mais de
 
 Usei o algoritmo Argon2 para criação e validação de senhas dos usuários.
 
+##### package br.com.agendaweb.servlet
+
+Será usada somente uma Servlet para executar todas as ações no servidor, de acordo com a solicitação do cliente será chamada uma das classes do pacote controller.
+
 
 
  
