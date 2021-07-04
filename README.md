@@ -19,7 +19,7 @@ Diagrama de Entidade Relacionamento:
 
 
 
-O usuário poderá armazenar vários contatos e cada contato poderá ter mais de um telefone.
+O usuário poderá armazenar vários contatos e cada contato poderá ter até três telefones.
 
 #### Back-end
 
