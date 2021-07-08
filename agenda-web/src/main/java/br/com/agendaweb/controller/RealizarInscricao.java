@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.agendaweb.dao.UsuarioDao;
-import br.com.agendaweb.jdbc.ConnectionFactory;
 import br.com.agendaweb.model.Usuario;
 import br.com.agendaweb.security.ValidadorArgon2;
 
@@ -15,7 +14,7 @@ public class RealizarInscricao implements Acao{
    public String executar(HttpServletRequest request, 
          HttpServletResponse response) {
       
-      Connection connection = new ConnectionFactory().getConnection();
+      Connection connection = (Connection) request.getAttribute("connection");
       UsuarioDao dao = new UsuarioDao(connection);
       Usuario usuario = new Usuario();
 
@@ -29,11 +28,14 @@ public class RealizarInscricao implements Acao{
          usuario.setSenha(hash);
 
          dao.cadastrar(usuario);
+         
+         request.getSession().setAttribute("usuarioLogado", usuario);
 
-         return "login-sucesso.jsp";
+         return "action?acao=ListarContatos";
       }
       else {
-         return "login-fail.jsp";
+         request.setAttribute("mensagemSign", "Email já cadastrado!");
+         return "/WEB-INF/views/sign.jsp";
       }
    }
 }
