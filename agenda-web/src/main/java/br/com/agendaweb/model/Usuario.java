@@ -1,16 +1,19 @@
 package br.com.agendaweb.model;
 
+import java.util.List;
+
 public class Usuario {
-   private long idUsuario;
+   private int idUsuario;
    private String nome;
    private String email;
    private String senha;
+   private List<Contato> contatos;
 
-   public long getIdUsuario() {
+   public int getIdUsuario() {
       return idUsuario;
    }
 
-   public void setIdUsuario(long idUsuario) {
+   public void setIdUsuario(int idUsuario) {
       this.idUsuario = idUsuario;
    }
 
@@ -38,4 +41,11 @@ public class Usuario {
       this.senha = senha;
    }
 
+   public List<Contato> getContatos() {
+      return contatos;
+   }
+
+   public void setContatos(List<Contato> contatos) {
+      this.contatos = contatos;
+   }
 }

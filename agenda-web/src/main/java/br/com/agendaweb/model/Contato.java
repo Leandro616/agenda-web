@@ -1,16 +1,18 @@
 package br.com.agendaweb.model;
 
+import java.util.List;
+
 public class Contato {
-   private long idContato;
+   private int idContato;
    private String nome;
    private String email;
-   private String[] telefones;
+   private List<Telefone> telefones;
 
-   public long getIdContato() {
+   public int getIdContato() {
       return idContato;
    }
 
-   public void setIdContato(long idContato) {
+   public void setIdContato(int idContato) {
       this.idContato = idContato;
    }
 
@@ -30,12 +32,11 @@ public class Contato {
       this.email = email;
    }
 
-   public String[] getTelefones() {
+   public List<Telefone> getTelefones() {
       return telefones;
    }
 
-   public void setTelefones(String[] telefones) {
+   public void setTelefones(List<Telefone> telefones) {
       this.telefones = telefones;
    }
-
 }
