@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import br.com.agendaweb.model.Usuario;
-import br.com.agendaweb.security.ValidadorArgon2;
 
 public class UsuarioDao {
    private Connection connection;
@@ -48,6 +47,10 @@ public class UsuarioDao {
             usuario.setNome(rs.getString("nome"));
             usuario.setSenha(rs.getString("senha"));
             usuario.setEmail(email);
+            ContatoDao contatoDao = 
+               new ContatoDao(connection, usuario.getIdUsuario());
+
+            usuario.setContatos(contatoDao.listarContatos());
 
             return usuario;
          }

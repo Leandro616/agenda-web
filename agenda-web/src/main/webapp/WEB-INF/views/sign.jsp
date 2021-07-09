@@ -6,7 +6,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
    <link rel="stylesheet" href="resources/css/login.css">
-   <title>Document</title>
+   <title>Agenda Web - Inscreva-se</title>
 </head>
 
 <body class="text-center">

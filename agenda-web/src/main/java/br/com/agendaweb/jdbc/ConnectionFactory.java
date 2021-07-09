@@ -2,7 +2,6 @@ package br.com.agendaweb.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 
 public class ConnectionFactory {
    private Connection connection;

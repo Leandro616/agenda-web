@@ -8,6 +8,6 @@ public class TelaSign implements Acao {
    public String executar(HttpServletRequest request, 
          HttpServletResponse response) {
       request.getSession().invalidate();
-      return "WEB-INF/views/sign.jsp";
+      return "/WEB-INF/views/sign.jsp";
    }
 }
