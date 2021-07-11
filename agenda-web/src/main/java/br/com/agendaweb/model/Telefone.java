@@ -17,19 +17,7 @@ public class Telefone {
    }
 
    public void setTipo(String tipo) {
-      switch (tipo) {
-         case "RES":
-            this.tipo = "Residencial";
-            break;
-         case "COM":
-            this.tipo = "Comercial";
-            break;
-         case "CEL":
-            this.tipo = "Celular";
-            break;
-         default:
-            this.tipo = tipo;
-      }
+      this.tipo = tipo;
    }
 
    public String numeroFormatado() {
@@ -43,5 +31,18 @@ public class Telefone {
 
 
       return String.format("(%s) %s-%s", ddd, n1, n2);
+   }
+
+   public String tipoFormatado() {
+      switch (tipo) {
+         case "RES":
+            return "Residencial";
+         case "COM":
+            return "Comercial";
+         case "CEL":
+            return "Celular";
+         default:
+            return tipo;
+      }
    }
 }

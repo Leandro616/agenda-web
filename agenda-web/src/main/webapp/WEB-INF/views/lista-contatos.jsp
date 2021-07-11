@@ -7,7 +7,7 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
-   <link rel="stylesheet" href="resources/css/header.css">
+   <link rel="stylesheet" href="resources/css/lista-contatos.css">
    
    <script src="resources/js/jquery-3.6.0.min.js"></script>
    <script src="resources/js/bootstrap.bundle.min.js"></script>
@@ -65,7 +65,7 @@
                   <td>
                      <select class="form-select">
                         <c:forEach items="${contato.telefones}" var="telefone">
-                           <option>${telefone.numeroFormatado()}  ${telefone.tipo}</option>
+                           <option>${telefone.numeroFormatado()}  ${telefone.tipoFormatado()}</option>
                         </c:forEach>
                      </select>
                   </td>
@@ -88,12 +88,13 @@
    </main>
 
    <!-- Formulario de Novo Contato -->
-   <section style="margin-top: 800px; margin-bottom: 400px;" id="novo-contato" class="container-sm">
+   <section id="novo-contato" class="container-sm">
       <div class="card">
          <div class="card-header">
             <h2 class="card-title">Novo contato</h2>
          </div>
-         <form action="/" method="GET" class="card-body" id="formulario">
+         <form action="action?" method="POST" class="card-body" id="formulario">
+            <input type="hidden" name="acao" value="CadastrarContato">
             <!-- 1° linha Nome e email -->
             <div class="row">
                <div class="col-5">
@@ -113,9 +114,9 @@
                   </div>
                   <div class="col-6">
                      <select class="form-select" name="tipo[0]">
-                        <option selected value="1">Celular</option>
-                        <option value="2">Comercial</option>
-                        <option value="3">Residencial</option>
+                        <option selected value="CEL">Celular</option>
+                        <option value="COM">Comercial</option>
+                        <option value="RES">Residencial</option>
                      </select>
                   </div>
                </div>

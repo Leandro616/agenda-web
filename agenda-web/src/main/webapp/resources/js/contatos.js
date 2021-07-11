@@ -12,8 +12,8 @@ $(function () {
             + '<input type="tel" name="telefone[' + incremento + ']"' 
             + 'class="form-control telefone" placeholder="Telefone"></div><div class="col-6">'
             + '<select class="form-select" name="tipo[' + incremento + ']">'
-            + '<option selected value="1">Celular</option><option value="2">'
-            + 'Comercial</option><option value="3">Residencial</option></select></div></div>';
+            + '<option selected value="CEL">Celular</option><option value="COM">'
+            + 'Comercial</option><option value="RES">Residencial</option></select></div></div>';
 
       
                         
