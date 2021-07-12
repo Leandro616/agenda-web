@@ -1,8 +1,17 @@
 package br.com.agendaweb.model;
 
 public class Telefone {
+   private int idTelefone;
    private String numero;
    private String tipo;
+
+   public int getIdTelefone() {
+      return idTelefone;
+   }
+
+   public void setIdTelefone(int idTelefone) {
+      this.idTelefone = idTelefone;
+   }
 
    public String getNumero() {
       return numero;

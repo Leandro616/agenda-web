@@ -72,14 +72,6 @@ public class ContatoDao {
       }
    }
 
-   // public void atualizar(int id) {
-
-   // }
-
-   // public Contato buscarPorId(int id) {
-
-   // }
-
    public void deletar(int idContato) {
       String sql = "delete from contatos where idcontato = ?";
 
@@ -93,9 +85,27 @@ public class ContatoDao {
       }
    }
 
+   public void atualizar(Contato contato) {
+      String sql = "update contatos set nome = ?, email = ? "
+         + "where idcontato = ?;";
+
+      try (PreparedStatement ps = connection.prepareStatement(sql)) {
+         ps.setString(1, contato.getNome());
+         ps.setString(2, contato.getEmail());
+         ps.setInt(3, contato.getIdContato());
+
+         ps.execute();
+
+         atualizarTelefones(contato.getTelefones());
+
+      } catch (SQLException e) {
+         e.printStackTrace();
+      }
+   }
+
    private List<Telefone> listarTelefones(int idContato) {
 
-      String sql = "select numero, tipo from telefones " 
+      String sql = "select idtelefone, numero, tipo from telefones " 
          + "where id_contato = ?;";
 
       List<Telefone> lista = new ArrayList<>();
@@ -108,8 +118,9 @@ public class ContatoDao {
 
          while (rs.next()) {
             Telefone telefone = new Telefone();
-            telefone.setNumero(rs.getString(1));
-            telefone.setTipo(rs.getString(2));
+            telefone.setIdTelefone(rs.getInt(1));
+            telefone.setNumero(rs.getString(2));
+            telefone.setTipo(rs.getString(3));
 
             lista.add(telefone);
          }
@@ -148,6 +159,25 @@ public class ContatoDao {
          ps.setInt(1, idContato);
 
          ps.execute();
+
+      } catch (SQLException e) {
+         e.printStackTrace();
+      }
+   }
+
+   private void atualizarTelefones(List<Telefone> lista) {
+      String sql = "update telefones set tipo = ?, numero = ? "
+         + "where idtelefone = ?;";
+
+      try (PreparedStatement ps = connection.prepareStatement(sql)) {
+
+         for (Telefone telefone : lista) {
+            ps.setString(1, telefone.getTipo());
+            ps.setString(2, telefone.getNumero());
+            ps.setInt(3, telefone.getIdTelefone());
+            
+            ps.execute();
+         }
 
       } catch (SQLException e) {
          e.printStackTrace();
