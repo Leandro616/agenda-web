@@ -14,8 +14,9 @@ public class UsuarioDao {
       this.connection = connection;
    }
 
-   public void cadastrar(Usuario usuario) {
+   public Usuario cadastrar(Usuario usuario) {
       String sql = "insert into usuarios(nome, email, senha) values(?, ?, ?);";
+      Usuario usuarioCadastrado = null;
 
       try (PreparedStatement ps = connection.prepareStatement(sql)) {
 
@@ -25,9 +26,14 @@ public class UsuarioDao {
 
          ps.execute();
 
+         usuarioCadastrado = pesquisarPorEmail(usuario.getEmail());
+         
+
       } catch (SQLException e) {
          e.printStackTrace();
       }
+
+      return usuarioCadastrado;
    }
 
    public Usuario pesquisarPorEmail(String email) {

@@ -27,9 +27,9 @@ public class RealizarInscricao implements Acao{
          usuario.setNome(request.getParameter("nome"));
          usuario.setSenha(hash);
 
-         dao.cadastrar(usuario);
+         Usuario usuarioCadastrado = dao.cadastrar(usuario);
          
-         request.getSession().setAttribute("usuarioLogado", usuario);
+         request.getSession().setAttribute("usuarioLogado", usuarioCadastrado);
 
          return "action?acao=ListarContatos";
       }
