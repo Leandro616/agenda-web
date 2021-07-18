@@ -21,7 +21,7 @@ public class RealizarLogin implements Acao{
       usuario = dao.pesquisarPorEmail(request.getParameter("email"));
 
       if (usuario == null) {
-         request.setAttribute("mensagemLogin", "Email ou senha incorretos!");
+         request.setAttribute("mensagemLogin", "Email não cadastrado!");
          return "/WEB-INF/views/login.jsp";
          
       } else {
@@ -34,7 +34,7 @@ public class RealizarLogin implements Acao{
             return "action?acao=ListarContatos";
          }
          else {
-            request.setAttribute("mensagemLogin", "Email ou senha incorretos!");
+            request.setAttribute("mensagemLogin", "Senha incorreta!");
             return "/WEB-INF/views/login.jsp";
          }
       }
