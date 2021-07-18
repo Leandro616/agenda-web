@@ -27,8 +27,6 @@ public class FiltroConexaoBD implements Filter {
    
       try (Connection connection = new ConnectionFactory().getConnection()) {
          
-         System.out.println("--------------Conexao Aberta com Filtro----------------");
-
          request.setAttribute("connection", connection);
 
          chain.doFilter(request, response);
@@ -36,8 +34,6 @@ public class FiltroConexaoBD implements Filter {
       } catch (SQLException e) {
          e.printStackTrace();
       }
-      
-      System.out.println("--------------Conexao Fechada com Filtro----------------");
    }
 
    @Override

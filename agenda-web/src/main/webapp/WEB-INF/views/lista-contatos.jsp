@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page contentType="text/html; charset=ISO-8859-1" language="java" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -24,6 +25,7 @@
             <div class="navbar-brand">
                <img src="resources/img/livro-de-contato.png" alt="icone">
                <span class="h5">Agenda Web</span>
+               <span class="h6 ms-3">${usuarioLogado.nome}</span>
             </div>
             <div class="d-flex">
                <a class="me-3 btn btn-purple" href="action?acao=RealizarLogout">Sair</a>
@@ -35,7 +37,6 @@
    <!-- Lista de Contatos -->
    <main class="container-sm mt-5">
       <header class="my-4">
-         <h5 class="ms-3">${usuarioLogado.nome}</h5>
          <nav class="navbar">
             <div class="container-sm">
                <h2 class="navbar-text">Meus Contatos</h2>
